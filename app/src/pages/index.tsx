@@ -317,7 +317,7 @@ export default function Home() {
                 お二人の先生に心より感謝申し上げます。
               </p>
 
-              <div className="md:flex md:justify-between  ">
+              <div className="md:flex md:justify-between w-11/12 mx-auto">
                 <div className="flex gap-3 my-20 md:w-2/5 md:mx-auto">
                   <div className="w-[50vw]">
                     <Image
