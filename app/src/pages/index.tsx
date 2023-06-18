@@ -186,7 +186,7 @@ export default function Home() {
           <>
             <Image
               className={"w-11/12 mr-auto md:w-2/3 my-4"}
-              src="/assets/image/home/template.png"
+              src="/assets/image/home/hipbornbelt.png"
               alt="logo"
               width={1500}
               height={1500}
@@ -226,7 +226,7 @@ export default function Home() {
           <>
             <Image
               className={"w-11/12 ml-auto md:w-2/3 mb-4 mt-24"}
-              src="/assets/image/home/template.png"
+              src="/assets/image/home/leggings.png"
               alt="logo"
               width={1500}
               height={1500}
@@ -263,7 +263,7 @@ export default function Home() {
 
           <Image
             className={"my-24 md:w-2/5"}
-            src="/assets/image/home/template.png"
+            src="/assets/image/home/nature.png"
             alt="logo"
             width={1500}
             height={1500}
