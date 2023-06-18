@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const visitedBefore = localStorage.getItem("visitedBefore");
-    if (visitedBefore) {
+    if (!visitedBefore) {
       setShowVideo(true);
       localStorage.setItem("visitedBefore", "true");
       const timerShow = setTimeout(() => {
