@@ -11,29 +11,32 @@ export default function Home() {
   const [fadeOut, setFadeOut] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [fadeInOverlay, setFadeInOverlay] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const visitedBefore = localStorage.getItem("visitedBefore");
-    if (!visitedBefore) {
-      setShowVideo(true);
-      localStorage.setItem("visitedBefore", "true");
-      const timerShow = setTimeout(() => {
-        setFadeOut(true);
-      }, 2500);
-      const timerOverlay = setTimeout(() => {
-        setShowOverlay(true);
-        const timerFadeIn = setTimeout(() => {
-          setFadeInOverlay(true);
-        }, 0);
-      }, 500);
-      const timerHide = setTimeout(() => {
-        setShowVideo(false);
-      }, 3000);
-      return () => {
-        clearTimeout(timerOverlay);
-        clearTimeout(timerShow);
-        clearTimeout(timerHide);
-      };
+    if (videoLoaded) {
+      const visitedBefore = localStorage.getItem("visitedBefore");
+      if (!visitedBefore) {
+        setShowVideo(true);
+        localStorage.setItem("visitedBefore", "true");
+        const timerShow = setTimeout(() => {
+          setFadeOut(true);
+        }, 2500);
+        const timerOverlay = setTimeout(() => {
+          setShowOverlay(true);
+          const timerFadeIn = setTimeout(() => {
+            setFadeInOverlay(true);
+          }, 0);
+        }, 500);
+        const timerHide = setTimeout(() => {
+          setShowVideo(false);
+        }, 3000);
+        return () => {
+          clearTimeout(timerOverlay);
+          clearTimeout(timerShow);
+          clearTimeout(timerHide);
+        };
+      }
     }
   }, []);
 
@@ -51,7 +54,12 @@ export default function Home() {
             fadeOut ? "opacity-0" : "opacity-100"
           } transition-opacity duration-500`}
         >
-          <video className="min-w-full min-h-full object-cover" autoPlay muted>
+          <video
+            onLoadedData={() => setVideoLoaded(true)}
+            className="min-w-full min-h-full object-cover"
+            autoPlay
+            muted
+          >
             <source src="/assets/video/first_view.mp4" type="video/mp4" />
           </video>
 
