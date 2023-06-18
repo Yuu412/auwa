@@ -52,7 +52,11 @@ export default function Home() {
             fadeOut ? "opacity-0" : "opacity-100"
           } transition-opacity duration-500`}
         >
-          <video className="min-w-full min-h-full object-cover" autoPlay muted>
+          <video
+            className="min-w-full min-h-full object-cover bg-background"
+            autoPlay
+            muted
+          >
             <source src="/assets/video/first_view.mp4" type="video/mp4" />
           </video>
 
