@@ -11,6 +11,7 @@ export default function Home() {
   const [fadeOut, setFadeOut] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [fadeInOverlay, setFadeInOverlay] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const visitedBefore = localStorage.getItem("visitedBefore");
