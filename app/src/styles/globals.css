@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .hidden-scrollbar {
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    /* Chrome, Safari 対応 */
+    display: none;
+  }
+
+  .wave {
+    overflow-y: hidden;
+    margin: 0 auto;
+  }
+
+  .wave::before {
+    position: absolute;
+    bottom: -150%;
+    left: -50%;
+    border-radius: 50% 50% / 50% 70%;
+    width: 200%;
+    height: 200%;
+    content: "";
+    background-image: linear-gradient(
+      80deg,
+      #f0e9e8 0%,
+      #ba91a4 50%,
+      #fff 100%
+    );
+    animation: wave-anime linear 25s infinite;
+  }
+  @keyframes wave-anime {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .wave:hover::before {
+    animation: wave-move 4s forwards;
+  }
+  @keyframes wave-move {
+    from {
+      transform: translateY(0) rotate(0);
+    }
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+}
+
+.inherit {
+  position: inherit;
+}
+
+.left-top-triangle {
+  border-bottom: 80px solid transparent;
+  border-left: 80px solid #ff9023;
+}
+
+* {
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
+}
+*::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
+}
