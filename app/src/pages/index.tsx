@@ -1,9 +1,7 @@
-import Head from "next/head";
-import Seo from "../components/Seo";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import Seo from "../components/Seo";
 
-import SectionTitle from "../components/common/SectionTitle";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -342,7 +340,7 @@ export default function Home() {
                     </p>
 
                     <div className="text-[0.6rem] md:text-sm leading-5">
-                      池川クリニック委員長として28年間で約2800件の出産を扱う。「胎内記憶」領域の第一人者として、数々の研究論文・書籍の執筆や、新聞・映画等のメディア出演を続けてきた。
+                      現・池川クリニック医院長。28年間で約2800件の出産を扱い、現在も横浜医師会理事他、助産師や医療従事者の育成に努める。「胎内記憶」の第一人者として、数々の研究論文・書籍の執筆、新聞・映画等のメディア出演を続けている。
                     </div>
                   </div>
                 </div>

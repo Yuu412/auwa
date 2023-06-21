@@ -1,10 +1,6 @@
-import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-import PageTitle from "../../components/common/PageTitle";
-import FormInput from "@/src/components/common/Form";
-import PageTopLogo from "@/src/components/common/PageTopLogo";
 import Seo from "@/src/components/Seo";
 
 export default function Home() {
@@ -58,12 +54,6 @@ export default function Home() {
                   一般医療機器として認められているSPAOREを
                   <br />
                   用いた温活アイテム「SPAレギンス」。
-                </p>
-
-                <p className="mt-4">
-                  保湿性・速乾性・耐久性に優れた日本製の
-                  <br />
-                  ウェットスーツ素材を使用しています。
                 </p>
 
                 <p className="mt-4">
