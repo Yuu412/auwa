@@ -13,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     const visitedBefore = localStorage.getItem("visitedBefore");
-    if (!visitedBefore) {
+    if (visitedBefore) {
       setShowVideo(true);
       localStorage.setItem("visitedBefore", "true");
       const timerShow = setTimeout(() => {
@@ -23,8 +23,8 @@ export default function Home() {
         setShowOverlay(true);
         const timerFadeIn = setTimeout(() => {
           setFadeInOverlay(true);
-        }, 0);
-      }, 500);
+        }, 100);
+      }, 1000);
       const timerHide = setTimeout(() => {
         setShowVideo(false);
       }, 3000);
@@ -43,36 +43,35 @@ export default function Home() {
         pageImgWidth={1280}
         pageImgHeight={960}
       />
-
-      {showVideo && (
-        <div
-          className={`fixed inset-0 flex items-center justify-center z-[999] ${
-            fadeOut ? "opacity-0" : "opacity-100"
-          } transition-opacity duration-500`}
-        >
-          <video
-            className="min-w-full min-h-full object-cover bg-background"
-            autoPlay
-            muted
+      <div className="fixed inset-0 flex items-center justify-center z-[1000] bg-[#efefef40]">
+        {showVideo && (
+          <div
+            className={`fixed inset-0 flex items-center justify-center z-[999] ${
+              fadeOut ? "opacity-0" : "opacity-100"
+            } transition-opacity duration-500`}
           >
-            <source src="/assets/video/first_view.mp4" type="video/mp4" />
-          </video>
+            <Image
+              className="w-screen h-screen object-cover"
+              src="/assets/image/home/loading.png"
+              alt="logo"
+              width={1500}
+              height={1500}
+            />
 
-          <div className="fixed inset-0 flex items-center justify-center z-[1000] bg-[#efefef40]">
             {showOverlay && (
-              <div className="fixed inset-0 flex items-center justify-center z-[1000] bg-[#efefef40]">
+              <div className="fixed flex items-center justify-center z-[1000]">
                 <h1
                   className={`text-white text-7xl font-mincho tracking-widest ${
                     fadeInOverlay ? "opacity-100" : "opacity-0"
-                  } transition-opacity duration-1000`}
+                  } transition-opacity duration-5000`}
                 >
                   AUWA
                 </h1>
               </div>
             )}
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <main className="relative overflow-x-hidden font-mincho mb-24 text-gray">
         {/*  Section: ファーストビュー  ===========================================================  */}
