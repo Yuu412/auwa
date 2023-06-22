@@ -1,16 +1,19 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../components/Layout";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Script from "next/script";
+import { useEffect, useState } from "react";
 import * as gtag from "src/libs/gtag";
-import { GetServerSideProps } from "next";
+import Layout from "../components/Layout";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [pageLoading, setPageLoading] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [fadeInOverlay, setFadeInOverlay] = useState(false);
 
   {
     /* Google Analytics */
@@ -26,8 +29,32 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   useEffect(() => {
-    const handleStart = (url: string) =>
+    const handleStart = (url: string) => {
+      if (url === "/") {
+        setShowVideo(true);
+
+        const timerShow = setTimeout(() => {
+          setFadeOut(true);
+        }, 2500);
+
+        const timerOverlay = setTimeout(() => {
+          setShowOverlay(true);
+          const timerFadeIn = setTimeout(() => {
+            setFadeInOverlay(true);
+          }, 100);
+        }, 500);
+
+        const timerHide = setTimeout(() => {
+          setShowVideo(false);
+        }, 3000);
+        return () => {
+          clearTimeout(timerOverlay);
+          clearTimeout(timerShow);
+          clearTimeout(timerHide);
+        };
+      }
       url !== router.asPath && setPageLoading(true);
+    };
     const handleComplete = () => setPageLoading(false);
 
     router.events.on("routeChangeStart", handleStart);
@@ -55,8 +82,39 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
     </div>
   );
+
   return (
     <>
+      {showVideo && (
+        <div
+          className={`fixed inset-0 flex items-center justify-center z-[999] ${
+            fadeOut ? "opacity-0" : "opacity-100"
+          } transition-opacity duration-500`}
+        >
+          <video
+            className="min-w-full min-h-full object-cover bg-background"
+            autoPlay
+            muted
+          >
+            <source src="/assets/video/first_view.mp4" type="video/mp4" />
+          </video>
+
+          <div className="fixed inset-0 flex items-center justify-center z-[900] bg-[#efefef40]">
+            {showOverlay && (
+              <div className="fixed inset-0 flex items-center justify-center z-[1000]">
+                <h1
+                  className={`text-white text-7xl font-mincho tracking-widest ${
+                    fadeInOverlay ? "opacity-100" : "opacity-0"
+                  } transition-opacity duration-1000`}
+                >
+                  AUWA
+                </h1>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Google tag (gtag.js) */}
       <Script
         strategy="afterInteractive"

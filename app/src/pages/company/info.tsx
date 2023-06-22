@@ -1,10 +1,5 @@
-import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 
-import PageTitle from "../../components/common/PageTitle";
-import FormInput from "@/src/components/common/Form";
-import PageTopLogo from "@/src/components/common/PageTopLogo";
 import Seo from "@/src/components/Seo";
 
 export default function Home() {
@@ -52,7 +47,7 @@ export default function Home() {
             <ul className="divide-y divide-[#CCCCCC]">
               <li className="flex flex-row py-4">
                 <div className="w-1/3">Company Name</div>
-                <div className="w-2/3 text-sm">Juno international</div>
+                <div className="w-2/3 text-sm">株式会社 Juno international</div>
               </li>
               <li className="flex flex-row py-4">
                 <div className="w-1/3">Street address</div>
