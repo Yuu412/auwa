@@ -2,40 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Seo from "../components/Seo";
 
-import { useEffect, useState } from "react";
-
 export default function Home() {
-  const [showVideo, setShowVideo] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const [fadeInOverlay, setFadeInOverlay] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    const visitedBefore = localStorage.getItem("visitedBefore");
-    if (!visitedBefore) {
-      setShowVideo(true);
-      localStorage.setItem("visitedBefore", "true");
-      const timerShow = setTimeout(() => {
-        setFadeOut(true);
-      }, 2500);
-      const timerOverlay = setTimeout(() => {
-        setShowOverlay(true);
-        const timerFadeIn = setTimeout(() => {
-          setFadeInOverlay(true);
-        }, 0);
-      }, 500);
-      const timerHide = setTimeout(() => {
-        setShowVideo(false);
-      }, 3000);
-      return () => {
-        clearTimeout(timerOverlay);
-        clearTimeout(timerShow);
-        clearTimeout(timerHide);
-      };
-    }
-  }, []);
-
   return (
     <>
       <Seo

@@ -91,13 +91,13 @@ export default function App({ Component, pageProps }: AppProps) {
             fadeOut ? "opacity-0" : "opacity-100"
           } transition-opacity duration-500`}
         >
-          <video
-            className="min-w-full min-h-full object-cover bg-background"
-            autoPlay
-            muted
-          >
-            <source src="/assets/video/first_view.mp4" type="video/mp4" />
-          </video>
+          <Image
+            className="w-screen h-screen object-cover"
+            src="/assets/image/home/loading.png"
+            alt="logo"
+            width={1500}
+            height={1500}
+          />
 
           <div className="fixed inset-0 flex items-center justify-center z-[900] bg-[#efefef40]">
             {showOverlay && (
