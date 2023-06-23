@@ -12,6 +12,7 @@ module.exports = {
         purple_dark: "#5F3F4E",
         gray: "#333333",
         pale_gray: "#737373",
+        pale_secondary_gray: "#AAAAAA",
         background: "#F0E9E8",
         pale_yellow: "#FFF9E2",
       },

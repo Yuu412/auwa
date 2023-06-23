@@ -1,10 +1,9 @@
-import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#4C4C4C] font-mincho text-pale_gray px-[5vw] md:pt-4">
+    <footer className="bg-[#4C4C4C] font-mincho text-pale_secondary_gray px-[5vw] md:pt-4">
       <div className="md:flex md:justify-between md:items-start">
         <div className="flex items-center w-1/3 mr-auto gap-2 pt-12 pb-6">
           <div className="w-2/5 md:w-1/6">
