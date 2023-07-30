@@ -54,7 +54,7 @@ const Seo = ({
       <link rel="canonical" href={url} />
       <meta
         name="google-site-verification"
-        content="B-vb9dS09WCP2bEIsoa5qgBvjJYEq58Kag94Y-QqMoE"
+        content="GHNcuPXML8Jnoj6CSljls4YzMQcWKhNkjs0RYWhSppw"
       />
     </Head>
   );
